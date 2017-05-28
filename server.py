@@ -1,7 +1,7 @@
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 import json, MySQLdb, datetime
 
-conn = MySQLdb.connect(host= "application-python-server",
+conn = MySQLdb.connect(host= "172.17.0.2:3306",
                   user="app",
                   passwd="2",
                   db="application")
@@ -34,7 +34,7 @@ class MyHandler(BaseHTTPRequestHandler):
              } 
               self.wfile.write(json.dumps(obj_err,indent=4, sort_keys=True, default=str))
               function_err()
-httpd = HTTPServer(("application-python-server", 80), MyHandler)
+httpd = HTTPServer(("localhost", 80), MyHandler)
 httpd.serve_forever()
 conn.close()
 cur.close()
