@@ -24,7 +24,10 @@ class MyHandler(BaseHTTPRequestHandler):
               obj_ok = {
                'status': 'ok', 
                'datetime': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-             } 
+             }
+              self.send_response(200)
+              self.send_header('Content-Type', 'application/json')
+              self.end_headers()
               self.wfile.write(json.dumps(obj_ok,indent=4, sort_keys=True, default=str))
               function_ok()
             else:
@@ -32,6 +35,9 @@ class MyHandler(BaseHTTPRequestHandler):
                'status': 'error', 
                'datetime': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
              } 
+              self.send_response(200)
+              self.send_header('Content-Type', 'application/json')
+              self.end_headers()
               self.wfile.write(json.dumps(obj_err,indent=4, sort_keys=True, default=str))
               function_err()
 httpd = HTTPServer(("", 80), MyHandler)
