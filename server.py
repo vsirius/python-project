@@ -1,7 +1,7 @@
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 import json, MySQLdb, datetime
 
-conn = MySQLdb.connect(host= "172.17.0.2",
+conn = MySQLdb.connect(host= "application-db",
                   user="app",
                   passwd="Ws0823~LL",
                   db="application")
