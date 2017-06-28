@@ -1,9 +1,9 @@
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 import json, MySQLdb, datetime
 
-conn = MySQLdb.connect(host= "10.0.1.87",
+conn = MySQLdb.connect(host= "application-db",
                   user="app",
-                  passwd="Ws0823~LL",
+                  passwd="zTAcDEhTIM",
                   db="application")
 cur= conn.cursor()
 
